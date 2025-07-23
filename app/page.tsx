@@ -44,7 +44,7 @@ export default function ResumeForm() {
       } else {
         setError(data.error || 'An error occurred.');
       }
-    } catch (err) {
+    } catch {
       setError('Network error.');
     } finally {
       setLoading(false);

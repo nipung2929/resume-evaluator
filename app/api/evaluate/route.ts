@@ -61,8 +61,7 @@ ${parsed.text}
     // console.log("API key present:", !!process.env.OPENAI_API_KEY);
 
     return NextResponse.json({ result: aiResponse });
-  } catch (error: any) {
-    // console.error('API Error:', error.message);
-    return NextResponse.json({ error: error?.message || 'Something went wrong.' }, { status: 500 });
+  } catch (error) {
+    return NextResponse.json({ error: error instanceof Error ? error.message : 'Something went wrong.' }, { status: 500 });
   }
 }
